@@ -19,7 +19,7 @@ export class ProductsFilterComponent implements OnInit {
   categoriesCounters: ICategoryCounters = {};
   private filterStoreKey = 'products.filter';
 
-  constructor( private productService: ProductsService,
+  constructor( private productsService: ProductsService,
                private storageService: StorageService ) {
   }
 
@@ -31,7 +31,7 @@ export class ProductsFilterComponent implements OnInit {
 
   filterProducts() {
     this.storageService.setItem(this.filterStoreKey, this.filter);
-    this.productService.filterProducts(this.filter);
+    this.productsService.filterProducts(this.filter);
   }
 
   isCategoryChecked( category: ICategory ): boolean {
@@ -53,11 +53,11 @@ export class ProductsFilterComponent implements OnInit {
   }
 
   private initData() {
-    this.categories = this.productService.getCategories();
-    this.cities = this.productService.getCities();
-    this.maxPrice = this.productService.getProductsMaxPrice();
+    this.categories = this.productsService.getCategories();
+    this.cities = this.productsService.getCities();
+    this.categoriesCounters = this.productsService.getCategoriesCounters();
+    this.maxPrice = this.productsService.getProductsMaxPrice();
     this.filter.priceRange[ 1 ] = this.maxPrice;
-    this.categoriesCounters = this.productService.getCategoriesCounters();
   }
 
   private checkStoredFilter() {

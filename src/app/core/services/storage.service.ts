@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { STORAGE_APP_KEY } from '../tokens/storage-app-key.token';
 
 @Injectable()
 export class StorageService {
-  private appKey = 'test_front';
 
-  constructor() {
+  constructor( @Inject(STORAGE_APP_KEY) private appKey: string ) {
   }
 
   setItem( key: string, data: any ) {
@@ -12,7 +12,12 @@ export class StorageService {
   }
 
   getItem( key: string ): any {
-    return JSON.parse(localStorage.getItem(this.getKey(key)));
+    try {
+      return JSON.parse(localStorage.getItem(this.getKey(key)));
+    } catch ( err ) {
+      console.log(err);
+      return null;
+    }
   }
 
   removeItem( key: string ) {

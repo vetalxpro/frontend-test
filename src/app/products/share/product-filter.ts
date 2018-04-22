@@ -6,7 +6,7 @@ export class ProductFilter {
                public filterQuery: ProductFilterQuery ) {
   }
 
-  filter() {
+  filter(): Product[] {
     return this
       .filterByCity()
       .filterByCategories()
@@ -16,9 +16,10 @@ export class ProductFilter {
 
   private filterByCity(): ProductFilter {
     // debugger;
-    const { city } = this.filterQuery;
-    if ( city ) {
-      this.products = this.products.filter(( item ) => item.city === Number(city));
+    const { city: cityId } = this.filterQuery;
+    if ( cityId ) {
+      this.products = this.products
+        .filter(( { city } ) => city === Number(cityId));
     }
     return this;
   }
@@ -26,7 +27,8 @@ export class ProductFilter {
   private filterByCategories(): ProductFilter {
     const { categories } = this.filterQuery;
     if ( categories && categories.length > 0 ) {
-      this.products = this.products.filter(( product ) => categories.includes(product.category));
+      this.products = this.products
+        .filter(( { category } ) => categories.includes(category));
     }
     return this;
   }
@@ -36,7 +38,7 @@ export class ProductFilter {
     if ( priceRange && priceRange.length === 2 ) {
       const [ from, to ] = priceRange;
       this.products = this.products
-        .filter(( product ) => product.price >= from && product.price <= to);
+        .filter(( { price } ) => price >= from && price <= to);
     }
     return this;
   }

@@ -1,11 +1,9 @@
 <div class="city-filter">
   <h2 class="filter-name">City</h2>
-  <div class="city-select-wrapper">
-    <select class="city-select" [(ngModel)]="filter.city" (change)="filterProducts()">
-      <option value="">All</option>
-      <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
-    </select>
-  </div>
+  <select class="city-select" [(ngModel)]="filter.city" (change)="filterProducts()">
+    <option value="" selected>All</option>
+    <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+  </select>
 </div>
 <div class="category-filter">
   <h2 class="filter-name">Categories</h2>

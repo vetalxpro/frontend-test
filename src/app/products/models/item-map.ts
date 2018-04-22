@@ -1,3 +1,3 @@
 export interface ItemMap {
-  [ id: number ]: string
+  [ id: number ]: string;
 }

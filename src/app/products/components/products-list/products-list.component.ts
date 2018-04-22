@@ -1,6 +1,8 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { Observable } from 'rxjs/Observable';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-products-list',
@@ -27,12 +29,13 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
   ]
 })
 export class ProductsListComponent implements OnInit {
-  @Input() products: Product[];
+  products$: Observable<Product[]>;
 
-  constructor() {
+  constructor( private productsService: ProductsService ) {
   }
 
   ngOnInit() {
+    this.products$ = this.productsService.getFilteredProducts();
   }
 
   trackProducts( index, product: Product ): number {

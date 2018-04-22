@@ -7,29 +7,17 @@ $counter-color: #a6a9af;
 }
 
 .city-filter {
-  .city-select-wrapper {
-    position: relative;
-    &::after {
-      position: absolute;
-      content: '\2517';
-      top: 50%;
-      right: 10px;
-      pointer-events: none;
-      font-family: Montserrat, sans-serif;
-      transform: rotate(-45deg) translateY(calc(-50%));
-    }
-    select {
-      cursor: pointer;
-      appearance: none;
-      font-family: Raleway, sans-serif;
-      font-size: 0.9375rem;
-      width: 100%;
-      padding: 10px;
-      color: #4c505b;
-      border: 1px solid #dee0e1;
-      background-color: #ffffff;
-    }
-
+  .city-select {
+    cursor: pointer;
+    appearance: none;
+    font-family: Raleway, sans-serif;
+    font-size: 0.9375rem;
+    width: 100%;
+    padding: 10px;
+    color: #4c505b;
+    border: 1px solid #dee0e1;
+    background: #ffffff url("../../../../assets/icons/arrow_down.svg") no-repeat 95% center;
+    background-size: 10px 6px;
   }
 }
 
@@ -47,6 +35,7 @@ $counter-color: #a6a9af;
   li {
     white-space: nowrap;
     font-size: 0.9375rem;
+    margin-bottom: 10px;
     .category-counter {
       margin-left: 8px;
       font-family: OpenSans, sans-serif;
@@ -69,7 +58,6 @@ $counter-color: #a6a9af;
     margin-bottom: 25px;
   }
   ::ng-deep {
-
     .noUi-target {
       border: none;
       background-color: $gray;
