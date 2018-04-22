@@ -1,0 +1,21 @@
+
+$blue: #1cb8ff;
+$white: #fff;
+
+.app-btn {
+  background-color: $blue;
+  text-transform: uppercase;
+  color: $white;
+  border: 1px solid $blue;
+  padding: 12px 28px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  font-family: Montserrat, sans-serif;
+  &:hover {
+    background-color: darken($blue, 5%);
+  }
+}

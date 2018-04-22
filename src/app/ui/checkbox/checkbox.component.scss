@@ -1,0 +1,60 @@
+$label-color: #4c505b;
+
+:host {
+  display: inline-block;
+}
+
+label {
+  cursor: pointer;
+  margin-bottom: 0;
+  &:hover {
+    .check {
+      border-color: #1cb8ff;
+      &::after {
+        opacity: 0.3;
+      }
+    }
+  }
+  input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    &:checked {
+      ~ .check {
+        border-color: #1cb8ff;
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .check {
+    position: relative;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #d5d7d8;
+    background-color: transparent;
+    transition: all 0.3s;
+    &::after {
+      content: '';
+      position: absolute;
+      opacity: 0;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid #1cb8ff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+  .label {
+    margin-left: 5px;
+    white-space: nowrap;
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    color: $label-color;
+  }
+}

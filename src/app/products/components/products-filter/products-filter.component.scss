@@ -1,0 +1,104 @@
+$blue: #1cb8ff;
+$gray: #d6d9e1;
+$counter-color: #a6a9af;
+
+.city-filter, .category-filter {
+  margin-bottom: 50px;
+}
+
+.city-filter {
+  .city-select-wrapper {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: '\2517';
+      top: 50%;
+      right: 10px;
+      pointer-events: none;
+      font-family: Montserrat, sans-serif;
+      transform: rotate(-45deg) translateY(calc(-50%));
+    }
+    select {
+      cursor: pointer;
+      appearance: none;
+      font-family: Raleway, sans-serif;
+      font-size: 0.9375rem;
+      width: 100%;
+      padding: 10px;
+      color: #4c505b;
+      border: 1px solid #dee0e1;
+      background-color: #ffffff;
+    }
+
+  }
+}
+
+.filter-name {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    white-space: nowrap;
+    font-size: 0.9375rem;
+    .category-counter {
+      margin-left: 8px;
+      font-family: OpenSans, sans-serif;
+      color: $counter-color;
+    }
+  }
+
+}
+
+.price-filter {
+  .price-values {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+  }
+  .price-dash {
+    margin: 0 10px;
+  }
+  nouislider {
+    max-width: calc(100% - 16px);
+    margin-bottom: 25px;
+  }
+  ::ng-deep {
+
+    .noUi-target {
+      border: none;
+      background-color: $gray;
+      box-shadow: none;
+    }
+
+    .noUi-connect {
+      background-color: $blue;
+      border-color: $blue;
+    }
+
+    .noUi-horizontal {
+      height: 4px;
+
+      .noUi-handle {
+        border-radius: 50% !important;
+        border: 2px solid $blue;
+        height: 16px;
+        width: 16px;
+        background-color: #ffffff;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+        &::after, &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,40 @@
+<div class="city-filter">
+  <h2 class="filter-name">City</h2>
+  <div class="city-select-wrapper">
+    <select class="city-select" [(ngModel)]="filter.city" (change)="filterProducts()">
+      <option value="">All</option>
+      <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="category-filter">
+  <h2 class="filter-name">Categories</h2>
+  <ul class="categories-list">
+    <li class="d-flex align-items-center"
+        *ngFor="let category of categories">
+      <app-checkbox [label]="category.name"
+                    [checked]="isCategoryChecked(category)"
+                    (change)="toggleCategory(category)"
+      >
+        <span class="category-counter">({{getCategoryCounter(category)}})</span>
+      </app-checkbox>
+    </li>
+  </ul>
+</div>
+<div class="price-filter">
+  <h2 class="filter-name">Price</h2>
+  <nouislider [connect]="true"
+              [min]="0"
+              [max]="maxPrice"
+              [step]="5"
+              [(ngModel)]="filter.priceRange">
+  </nouislider>
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex price-values">
+      <span class="">{{filter.priceRange[0] | currency:'USD':'symbol':'1.0-0'}}</span>
+      <span class="price-dash">-</span>
+      <span class="">{{filter.priceRange[1] | currency:'USD':'symbol':'1.0-0'}}</span>
+    </div>
+    <button class="app-btn btn-blue" (click)="filterProducts()">Filter</button>
+  </div>
+</div>

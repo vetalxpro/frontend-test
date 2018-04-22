@@ -1,0 +1,12 @@
+<div class="product">
+  <div class="product-top" [style.backgroundImage]="product.image | bgImage">
+    <span class="city">{{product.cityName}}</span>
+  </div>
+  <div class="product-body">
+    {{product.name}}
+  </div>
+  <div class="d-flex justify-content-between align-items-center product-footer">
+    <span class="category">{{product.categoryName}}</span>
+    <span class="price">{{product.price | currency:'USD'}}</span>
+  </div>
+</div>

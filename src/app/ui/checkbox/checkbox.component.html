@@ -1,0 +1,12 @@
+<label class="d-flex align-items-center">
+  <input type="checkbox"
+         [checked]="checked"
+         [attr.name]="name"
+         [tabIndex]="tabIndex"
+         (click)="onInputClick($event)"
+         (change)="onChangeEvent($event)"
+         [disabled]="isDisabled">
+  <span class="check"></span>
+  <span class="label">{{label}}</span>
+  <ng-content></ng-content>
+</label>
