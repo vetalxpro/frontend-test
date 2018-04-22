@@ -1,5 +1,5 @@
-<div class="product">
-  <div class="product-top" [style.backgroundImage]="product.image | bgImage">
+<a [routerLink]="[product.id]" class="d-flex flex-column product">
+  <div class="d-flex align-items-end product-header" [style.backgroundImage]="product.image | bgImage">
     <span class="city">{{product.cityName}}</span>
   </div>
   <div class="product-body">
@@ -9,4 +9,4 @@
     <span class="category">{{product.categoryName}}</span>
     <span class="price">{{product.price | currency:'USD'}}</span>
   </div>
-</div>
+</a>

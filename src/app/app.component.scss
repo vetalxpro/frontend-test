@@ -1,9 +1,3 @@
 :host {
-  display: flex;
-  min-height: 100%;
-  flex-direction: column;
-}
-
-.container {
-  flex-grow: 1;
+  min-height: 100vh;
 }

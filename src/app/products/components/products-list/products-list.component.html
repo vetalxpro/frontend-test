@@ -2,7 +2,7 @@
   <div *ngIf="products.length > 0; else noProducts"
        class="row"
        [@productAnimation]="products.length">
-    <app-product-item class="col-12 col-md-6 col-lg-4"
+    <app-product-item class="col-12 col-sm-6 col-lg-4"
                       *ngFor="let product of products;trackBy:trackProducts"
                       [product]="product">
     </app-product-item>
@@ -10,5 +10,5 @@
 </ng-container>
 
 <ng-template #noProducts>
-  <p>No Products</p>
+  <p class="py-4 text-center">No Products</p>
 </ng-template>

@@ -1,4 +1,5 @@
-$blue: #1cb8ff;
+@import "../../../../styles/variables";
+
 $gray: #d6d9e1;
 $counter-color: #a6a9af;
 
@@ -16,8 +17,15 @@ $counter-color: #a6a9af;
     padding: 10px;
     color: #4c505b;
     border: 1px solid #dee0e1;
-    background: #ffffff url("../../../../assets/icons/arrow_down.svg") no-repeat 95% center;
+    background-color: $white;
+    background-image: url("../../../../assets/icons/arrow_down.svg");
+    background-repeat: no-repeat;
+    background-position: 95% center;
     background-size: 10px 6px;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px #dee0e1;
+    }
   }
 }
 
@@ -33,7 +41,6 @@ $counter-color: #a6a9af;
   padding: 0;
   margin: 0;
   li {
-    white-space: nowrap;
     font-size: 0.9375rem;
     margin-bottom: 10px;
     .category-counter {
@@ -46,9 +53,15 @@ $counter-color: #a6a9af;
 }
 
 .price-filter {
-  .price-values {
+  .btn {
     font-family: Montserrat, sans-serif;
     font-weight: 700;
+    font-size: #{14px/$font-size-px}rem;
+    text-transform: uppercase;
+  }
+  .price-values {
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
   }
   .price-dash {
     margin: 0 10px;

@@ -1,77 +1,78 @@
+@import "../../../../styles/variables";
+
 $product-border-color: #e9e9e9;
 $category-color: #a6a9af;
 $price-color: #282d3b;
 $name-color: #33363e;
-:host {
-  display: block;
-}
+$product-padding: 20px;
 
 .product {
-  overflow:      hidden;
-  max-width:     270px;
+  overflow: hidden;
   margin-bottom: 30px;
-  border:        1px solid $product-border-color;
-  transition:    all 0.3s;
-  cursor:        pointer;
+  border: 1px solid $product-border-color;
+  transition: all 0.3s;
+  text-decoration: none;
   &:hover {
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15);
-    .product-top {
+    .product-header {
       &::before {
-        background: rgba(#1cb8ff, 0.7);
+        background: rgba($blue, 0.7);
       }
     }
   }
-  .product-top {
-    position:            relative;
-    padding:             20px;
-    height:              180px;
-    font-size:           0.8125rem;
-    font-weight:         500;
-    font-family:         Raleway, sans-serif;
+  .product-header {
+    position: relative;
+    padding: $product-padding;
+    height: 180px;
+    font-size: #{13px/$font-size-px}rem;
+    font-weight: 500;
+    font-family: Raleway, sans-serif;
     background-position: center;
-    background-repeat:   no-repeat;
-    background-size:     cover;
+    background-repeat: no-repeat;
+    background-size: cover;
     &::before {
-      position:   absolute;
-      content:    '';
-      height:     100%;
-      width:      100%;
-      top:        0;
-      left:       0;
-      right:      0;
-      bottom:     0;
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       transition: all 0.1s;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 100%);
+      background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0) 30%,
+          rgba(0, 0, 0, 0.7) 100%
+      );
     }
     .city {
-      position: absolute;
-      bottom:   20px;
-      color:    #ffffff;
+      position: relative;
+      color: $white;
     }
 
   }
   .product-body {
-    padding:     20px;
+    padding: $product-padding;
     font-family: Montserrat, sans-serif;
-    font-size:   1rem;
-    font-weight: 700;
-    color:       $name-color;
+    font-weight: 500;
+    color: $name-color;
 
   }
 
   .product-footer {
-    padding: 20px;
+    padding: $product-padding;
     .category {
       font-family: Raleway, sans-serif;
-      font-size:   0.8125rem;
+      font-size: #{13px/$font-size-px}rem;
       font-weight: 500;
-      color:       $category-color;
+      color: $category-color;
     }
     .price {
-      font-size:   1rem;
-      font-weight: 700;
+      font-weight: 500;
       font-family: Montserrat, sans-serif;
-      color:       $price-color;
+      color: $price-color;
     }
   }
 }

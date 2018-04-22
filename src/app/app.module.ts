@@ -18,7 +18,6 @@ import { CoreModule } from './core/core.module';
     AppComponent,
     HeaderComponent,
     FooterComponent
-
   ],
   providers: [],
   bootstrap: [ AppComponent ]
