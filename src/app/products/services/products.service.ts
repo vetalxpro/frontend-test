@@ -5,9 +5,7 @@ import { IProduct, Product } from '../models/product';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ItemMap } from '../models/item-map';
-import { ProductFilter } from '../share/product-filter';
 import { categoriesMock, citiesMock, productsMock } from '../mocks';
-import { ProductFilterQuery } from '../share/product-filter-query';
 
 @Injectable()
 export class ProductsService {
@@ -20,13 +18,12 @@ export class ProductsService {
   ];
   private categories: ICategory[] = categoriesMock;
   private cities: ICity[] = citiesMock;
-  private products: Product[] = [];
-  private filteredProducts = new BehaviorSubject<Product[]>([]);
+  private products = new BehaviorSubject<Product[]>([]);
 
   constructor() {
     this.categoriesMap = this.makeCategoriesMap(this.categories);
     this.citiesMap = this.makeCitiesMap(this.cities);
-    this.products = this.transformProducts(productsMock);
+    this.products.next(this.transformProducts(productsMock));
   }
 
   getCategories(): ICategory[] {
@@ -37,30 +34,8 @@ export class ProductsService {
     return [ ...this.cities ];
   }
 
-  getCategoriesCounters() {
-    return this.products.reduce(( counters, { category } ) => {
-      counters[ category ] = counters[ category ] || 0;
-      counters[ category ] += 1;
-      return counters;
-    }, {});
-  }
-
-  getFilteredProducts(): Observable<Product[]> {
-    return this.filteredProducts.asObservable();
-  }
-
-  getProductsMaxPrice(): number {
-    let maxPrice = 0;
-    this.products.forEach(( { price } ) => {
-      if ( price > maxPrice ) {
-        maxPrice = price;
-      }
-    });
-    return maxPrice;
-  }
-
-  filterProducts( filter: ProductFilterQuery ) {
-    this.filteredProducts.next(new ProductFilter(this.products, filter).filter());
+  getProducts(): Observable<Product[]> {
+    return this.products.asObservable();
   }
 
   private makeCategoriesMap( categories: ICategory[] ): ItemMap {

@@ -9,6 +9,7 @@ import { ProductsService } from './services/products.service';
 import { CheckboxModule } from '../ui/checkbox/checkbox.module';
 import { NouisliderModule } from 'ng2-nouislider';
 import { PipesModule } from '../shared/pipes/pipes.module';
+import { ProductsFilterService } from './services/products-filter.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { PipesModule } from '../shared/pipes/pipes.module';
     ProductsFilterComponent
   ],
   providers: [
-    ProductsService
+    ProductsService,
+    ProductsFilterService
   ]
 })
 export class ProductsModule {

@@ -14,7 +14,7 @@
                     [checked]="isCategoryChecked(category)"
                     (change)="toggleCategory(category)"
       >
-        <span class="category-counter">({{getCategoryCounter(category)}})</span>
+        <span class="category-counter">({{getProductsCountInCategory(category)}})</span>
       </app-checkbox>
     </li>
   </ul>
