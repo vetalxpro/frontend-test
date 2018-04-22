@@ -14,9 +14,9 @@ export class ProductsService {
   categoriesMap: ItemMap = {};
   citiesMap: ItemMap = {};
   private bgImages = [
-    '/assets/img/bg-1.jpg',
-    '/assets/img/bg-3.jpg',
-    '/assets/img/bg-2.jpg'
+    './assets/img/bg-1.jpg',
+    './assets/img/bg-3.jpg',
+    './assets/img/bg-2.jpg'
   ];
   private categories: ICategory[] = categoriesMock;
   private cities: ICity[] = citiesMock;
